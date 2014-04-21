@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  root 'pages#home'
-  get 'about', to: 'pages#about'
-  get 'contact', to: 'pages#contact'
+  
+  namespace :api do
+    namespace :v1 do
+      resources :pages, only: [:index, :show]
+    end
+  end
+  root 'index#index'
+ 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: 'sessions#failure'
   get 'signout', to: 'sessions#destroy', as: 'signout'
