@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe PagesController do
+describe Api::V1::PagesController do
 
 end
